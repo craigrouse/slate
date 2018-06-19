@@ -362,6 +362,8 @@ This example shows you how to give your users a simple "Opt-in/Opt-out" option. 
 
 Define and call the following method in your Tealium Helper class when your app user consents to or declines tracking. If the user consents to tracking, the Consent Manager will automatically opt them in to all tracking categories.
 
+![Simple](images/simple-gif.gif)
+
 ## Use Case 2: Grouped Opt-in
 
 ```swift
@@ -399,6 +401,8 @@ func setUserConsentPreferences(){
 
 This example shows a category-based consent model, where tracking categories are grouped into a smaller number of higher-level categories, defined by you. For example, you may choose to group the Tealium consent categories "big_data", "analytics", and "monitoring" under a single category called "performance". This may be easier for the user than selecting from the full list of categories. You may choose to represent this in a slider interface, ranging from least-permissive to most-permissive (all categories).
 
+![Group-Based](images/grouped-gif.gif)
+
 ## Use Case 3: Category-based Opt-in
 
 ```swift
@@ -425,3 +429,5 @@ func setUserConsentPreferences(_ categories: [String]){
 ```
 
 This example shows a category-based consent model where the user must explicitly select each category from the full list of categories. The default state is "Not Yet Determined", which will queue hits until the user provides their consent. If the user consents to any category, events are de-queued, and the consented category data is appended to each tracking call.
+
+![Category-Based](images/individual-gif.gif)
