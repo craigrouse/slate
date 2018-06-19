@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Consent Manager Module</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;swift&quot;,&quot;objective_c&quot;,&quot;java&quot;,&quot;kotlin&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,10 +211,10 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="swift">Swift</a>
+              <a href="#" data-language-name="objective_c">Objective-C</a>
+              <a href="#" data-language-name="java">Java</a>
+              <a href="#" data-language-name="kotlin">Kotlin</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -222,280 +222,493 @@
         <ul class="search-results"></ul>
       <div id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
-          </li>
-          <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#mobile-consent-manager" class="toc-h1 toc-link" data-title="mobile-consent-manager">Mobile Consent Manager</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
-                  </li>
-                  <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#how-it-works" class="toc-h2 toc-link" data-title="how-it-works">How It Works</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#quick-start" class="toc-h1 toc-link" data-title="quick-start">Quick Start</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#consent-granted" class="toc-h2 toc-link" data-title="consent-granted">Consent Granted</a>
+                  </li>
+                  <li>
+                    <a href="#consent-declined" class="toc-h2 toc-link" data-title="consent-declined">Consent Declined</a>
+                  </li>
+                  <li>
+                    <a href="#partial-consent-granted" class="toc-h2 toc-link" data-title="partial-consent-granted">Partial Consent Granted</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#api-reference" class="toc-h1 toc-link" data-title="api-reference">API Reference</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#consent-manager-core-api" class="toc-h2 toc-link" data-title="consent-manager-core-api">Consent Manager Core API</a>
+                  </li>
+                  <li>
+                    <a href="#add-consent-delegate" class="toc-h2 toc-link" data-title="add-consent-delegate">Add Consent Delegate</a>
+                  </li>
+                  <li>
+                    <a href="#remove-all-consent-delegates" class="toc-h2 toc-link" data-title="remove-all-consent-delegates">Remove All Consent Delegates</a>
+                  </li>
+                  <li>
+                    <a href="#set-consent-status" class="toc-h2 toc-link" data-title="set-consent-status">Set Consent Status</a>
+                  </li>
+                  <li>
+                    <a href="#set-consent-categories" class="toc-h2 toc-link" data-title="set-consent-categories">Set Consent Categories</a>
+                  </li>
+                  <li>
+                    <a href="#set-consent-status-with-categories" class="toc-h2 toc-link" data-title="set-consent-status-with-categories">Set Consent Status With Categories</a>
+                  </li>
+                  <li>
+                    <a href="#current-consent-status" class="toc-h2 toc-link" data-title="current-consent-status">Current Consent Status</a>
+                  </li>
+                  <li>
+                    <a href="#current-consent-categories" class="toc-h2 toc-link" data-title="current-consent-categories">Current Consent Categories</a>
+                  </li>
+                  <li>
+                    <a href="#current-consent-preferences" class="toc-h2 toc-link" data-title="current-consent-preferences">Current Consent Preferences</a>
+                  </li>
+                  <li>
+                    <a href="#clear-stored-consent-preferences" class="toc-h2 toc-link" data-title="clear-stored-consent-preferences">Clear Stored Consent Preferences</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#tealiumconfig-methods" class="toc-h1 toc-link" data-title="tealiumconfig-methods">TealiumConfig Methods</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#enable-consent-logging" class="toc-h2 toc-link" data-title="enable-consent-logging">Enable Consent Logging</a>
+                  </li>
+                  <li>
+                    <a href="#consent-logging-enabled" class="toc-h2 toc-link" data-title="consent-logging-enabled">Consent Logging Enabled?</a>
+                  </li>
+                  <li>
+                    <a href="#set-consent-status-2" class="toc-h2 toc-link" data-title="set-consent-status">Set Consent Status</a>
+                  </li>
+                  <li>
+                    <a href="#set-consent-categories-2" class="toc-h2 toc-link" data-title="set-consent-categories">Set Consent Categories</a>
+                  </li>
+                  <li>
+                    <a href="#get-consent-status" class="toc-h2 toc-link" data-title="get-consent-status">Get Consent Status</a>
+                  </li>
+                  <li>
+                    <a href="#get-consent-categories" class="toc-h2 toc-link" data-title="get-consent-categories">Get Consent Categories</a>
+                  </li>
+                  <li>
+                    <a href="#override-policy" class="toc-h2 toc-link" data-title="override-policy">Override Policy</a>
+                  </li>
+                  <li>
+                    <a href="#get-policy-override" class="toc-h2 toc-link" data-title="get-policy-override">Get Policy Override</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#delegate-methods-tealiumconsentmanagerdelegate" class="toc-h1 toc-link" data-title="delegate-methods-tealiumconsentmanagerdelegate">Delegate Methods (TealiumConsentManagerDelegate)</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#willdroptrackingcall" class="toc-h2 toc-link" data-title="willdroptrackingcall">willDropTrackingCall</a>
+                  </li>
+                  <li>
+                    <a href="#willqueuetrackingcall" class="toc-h2 toc-link" data-title="willqueuetrackingcall">willQueueTrackingCall</a>
+                  </li>
+                  <li>
+                    <a href="#willsendtrackingcall" class="toc-h2 toc-link" data-title="willsendtrackingcall">willSendTrackingCall</a>
+                  </li>
+                  <li>
+                    <a href="#consentstatechanged" class="toc-h2 toc-link" data-title="consentstatechanged">consentStateChanged</a>
+                  </li>
+                  <li>
+                    <a href="#userconsentedtotracking" class="toc-h2 toc-link" data-title="userconsentedtotracking">userConsentedToTracking</a>
+                  </li>
+                  <li>
+                    <a href="#useroptedoutoftracking" class="toc-h2 toc-link" data-title="useroptedoutoftracking">userOptedOutOfTracking</a>
+                  </li>
+                  <li>
+                    <a href="#userchangedconsentcategories" class="toc-h2 toc-link" data-title="userchangedconsentcategories">userChangedConsentCategories</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#implemented-code-examples" class="toc-h1 toc-link" data-title="implemented-code-examples">Implemented Code Examples</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#use-case-1-simple-opt-in" class="toc-h2 toc-link" data-title="use-case-1-simple-opt-in">Use Case 1: Simple Opt-in</a>
+                  </li>
+                  <li>
+                    <a href="#use-case-2-grouped-opt-in" class="toc-h2 toc-link" data-title="use-case-2-grouped-opt-in">Use Case 2: Grouped Opt-in</a>
+                  </li>
+                  <li>
+                    <a href="#use-case-3-category-based-opt-in" class="toc-h2 toc-link" data-title="use-case-3-category-based-opt-in">Use Case 3: Category-based Opt-in</a>
+                  </li>
+              </ul>
           </li>
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='https://community.tealiumiq.com'> > Tealium Learning Community</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
-
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
+        <h1 id='mobile-consent-manager'>Mobile Consent Manager</h1>
+<p>This module provides a convenient implementation of the <a href="https://community.tealiumiq.com/t5/iQ-Tag-Management/Explicit-Consent-Prompt-Manager/ta-p/22714">Tealium Consent Manager</a>, which can help your app to comply with legal obligations, such as GDPR. Once implemented, your user will be able to easily consent to or decline tracking, and the Tealium SDK will store and respect their choice from that point on.</p>
+<h2 id='how-it-works'>How It Works</h2>
+<p>The Consent Manager module is enabled by default. In its default state, before any consent preferences have been set, it will queue all events received prior to the initial consent being granted by the user (the &quot;not determined&quot; state). It will continue doing this until such point as the user consents, or revokes their consent. At the point where the app user makes a selection, the following will happen:</p>
+<h3 id='if-the-user-consents-to-tracking'>If the user consents to tracking</h3>
+<ul>
+<li>All previously-queued tracking calls will be sent</li>
+<li>The user&#39;s consent state will be stored permanently, and will be checked each time a new tracking call is made</li>
+<li>If the user has set customized preferences, and consented only to specific categories, these categories will be respected when tags or connectors are fired in Tealium iQ and EventStream respectively</li>
+<li>If <a href="https://community.tealiumiq.com/t5/Universal-Data-Hub/Consent-Change-Event-Specifications/ta-p/23213">Consent Logging</a> is enabled, a single tracking call will be sent to UDH, to keep track of the user&#39;s consent preferences for auditing purposes only.</li>
+</ul>
+<h3 id='if-the-user-grants-partial-consent-selected-categories'>If the user grants partial consent (selected categories)</h3>
+<ul>
+<li>If <a href="https://community.tealiumiq.com/t5/Universal-Data-Hub/Consent-Change-Event-Specifications/ta-p/23213">Consent Logging</a> is enabled, a single tracking call will be sent to UDH, to keep track of the user&#39;s consent preferences for auditing purposes only</li>
+</ul>
+<h3 id='if-the-user-declines-tracking'>If the user declines tracking</h3>
+<ul>
+<li>All previously-queued tracking calls will be purged from the queue</li>
+<li>All future tracking calls will be canceled</li>
+<li>No events will be sent to the UDH. Declined consent state cannot be tracked in the UDH.</li>
+</ul>
+<h1 id='quick-start'>Quick Start</h1>
+<p>This quick start guide shows the basic API usage only. Please see API reference for full description of API methods.</p>
+<h2 id='consent-granted'>Consent Granted</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">self</span><span class="o">.</span><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">setConsentStatus</span><span class="p">(</span><span class="o">.</span><span class="n">consented</span><span class="p">)</span>
 </code></pre>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
+<p>User granted tracking consent (all categories)</p>
+<h2 id='consent-declined'>Consent Declined</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">self</span><span class="o">.</span><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">setConsentStatus</span><span class="p">(</span><span class="o">.</span><span class="n">notConsented</span><span class="p">)</span>
+</code></pre>
+<p>User declined tracking consent (all categories)</p>
+<h2 id='partial-consent-granted'>Partial Consent Granted</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">self</span><span class="o">.</span><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">setConsentCategories</span><span class="p">([</span><span class="o">.</span><span class="n">analytics</span><span class="p">,</span><span class="o">.</span><span class="n">bigData</span><span class="p">,</span><span class="o">.</span><span class="n">monitoring</span><span class="p">])</span>
+</code></pre>
+<p>User granted consent only for specified tracking categories</p>
+<h1 id='api-reference'>API Reference</h1><h2 id='consent-manager-core-api'>Consent Manager Core API</h2><pre class="highlight swift tab-swift"><code><span class="kd">class</span> <span class="kt">MyClass</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">teal</span><span class="p">:</span> <span class="kt">Tealium</span><span class="p">?</span>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+    <span class="kd">public</span> <span class="nf">init</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="nv">account</span><span class="p">:</span> <span class="s">"&lt;youraccount&gt;"</span><span class="p">,</span>
+                                   <span class="nv">profile</span><span class="p">:</span> <span class="s">"demo"</span><span class="p">,</span>
+                                   <span class="nv">environment</span><span class="p">:</span> <span class="s">"dev"</span><span class="p">,</span>
+                                   <span class="nv">datasource</span><span class="p">:</span> <span class="s">"abc123"</span><span class="p">,</span>
+                                   <span class="nv">optionalData</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+        <span class="k">self</span><span class="o">.</span><span class="n">teal</span> <span class="o">=</span> <span class="kt">Tealium</span><span class="p">(</span><span class="n">config</span><span class="p">)</span> <span class="p">{</span> 
+            <span class="c1">// Note: this is inside the completion block after initialization</span>
 
-<p><code>Authorization: meowmeowmeow</code></p>
+            <span class="c1">// self.teal is guaranteed to be initialized inside the completion block</span>
+            <span class="k">self</span><span class="o">.</span><span class="n">teal</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="err">###</span> <span class="c1">// where ### is any public API method on the consentManager object</span>
+
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre>
+<p>This code shows how to access the consent manager</p>
+<h2 id='add-consent-delegate'>Add Consent Delegate</h2><pre class="highlight swift tab-swift"><code><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">addConsentDelegate</span><span class="p">(</span><span class="k">self</span><span class="p">)</span>
+</code></pre>
+<p>Registers a specific class conforming to the TealiumConsentDelegate protocol</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>delegate</td>
+<td>A class conforming to TealiumConsentDelegate</td>
+</tr>
+</tbody></table>
+<h2 id='remove-all-consent-delegates'>Remove All Consent Delegates</h2><pre class="highlight swift tab-swift"><code><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">removeAllConsentDelegates</span><span class="p">()</span>
+</code></pre>
+<p>Removes all consent delegates added by you. Retains the built-in delegate created by the TealiumConsentManagerModule class.</p>
+<h2 id='set-consent-status'>Set Consent Status</h2><pre class="highlight swift tab-swift"><code><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">setConsentStatus</span><span class="p">(</span><span class="kt">TealiumConsentStatus</span><span class="p">)</span>
+</code></pre>
+<p>Sets the user&#39;s current consent status. Designed to be called from your consent management preferences screen in your app when the user enables or disables tracking.</p>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+Will always set the list of consented categories to include ALL available consent categories, if the status is <code>.consented</code>. Does not allow categories to be set selectively.
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Default</th>
+<th>Parameters</th>
 <th>Description</th>
+<th>Example Value</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>status</td>
+<td>A value from TealiumConsentStatus enum</td>
+<td>.consented/.notConsented</td>
 </tr>
 </tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<h2 id='set-consent-categories'>Set Consent Categories</h2><pre class="highlight swift tab-swift"><code><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">setConsentCategories</span><span class="p">([</span><span class="kt">TealiumConsentCategories</span><span class="p">])</span>
 </code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+<p>Sets the user&#39;s current consent categories. Designed to be called from your consent management preferences screen in your app. </p>
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<aside class="notice">Will always set consent status to <code>.consented</code>.</aside>
+
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Parameters</th>
 <th>Description</th>
+<th>Example Value</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>categories</td>
+<td>An array of values from the TealiumConsentCategories enum</td>
+<td>[.analytics,.bigData]</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<h2 id='set-consent-status-with-categories'>Set Consent Status With Categories</h2><pre class="highlight swift tab-swift"><code><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">setConsentStatusWithCategories</span><span class="p">(</span><span class="nv">status</span><span class="p">:</span> <span class="o">.</span><span class="n">consented</span><span class="p">,</span> <span class="nv">categories</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="n">analytics</span><span class="p">])</span>
 </code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<p>Sets consent status and categories in a single call.</p>
+
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Parameters</th>
 <th>Description</th>
+<th>Example Value</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td>status</td>
+<td>A value from TealiumConsentStatus enum</td>
+<td><code>.consented</code>/<code>.notConsented</code></td>
+</tr>
+<tr>
+<td>categories</td>
+<td>An array of values from the TealiumConsentCategories enum</td>
+<td>[.analytics,.bigData]</td>
 </tr>
 </tbody></table>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
-
-<p>The Kittn API uses the following error codes:</p>
+<h2 id='current-consent-status'>Current Consent Status</h2><pre class="highlight swift tab-swift"><code><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">currentConsentStatus</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">TealiumConsentStatus</span>
+</code></pre>
+<p>Returns the current consent status</p>
+<h2 id='current-consent-categories'>Current Consent Categories</h2><pre class="highlight swift tab-swift"><code><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">currentConsentCategories</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">TealiumConsentCategories</span><span class="p">]</span>
+</code></pre>
+<p>Returns the current consent categories</p>
+<h2 id='current-consent-preferences'>Current Consent Preferences</h2><pre class="highlight swift tab-swift"><code><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="n">currentConsentPreferences</span> <span class="o">-&gt;</span> <span class="kt">TealiumConsentUserPreferences</span>
+</code></pre>
+<p>Returns the TealiumConsentUserPreferences object (by value -&gt; struct)</p>
+<h2 id='clear-stored-consent-preferences'>Clear Stored Consent Preferences</h2><pre class="highlight swift tab-swift"><code><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">clearUserConsentPreferences</span><span class="p">()</span>
+</code></pre>
+<p>Clears all currently stored consent preferences. Reverts to &quot;not determined&quot; consent state, with no categories.</p>
+<h1 id='tealiumconfig-methods'>TealiumConfig Methods</h1><h2 id='enable-consent-logging'>Enable Consent Logging</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="nf">setConsentLoggingEnabled</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</code></pre>
+<p>Enables the <a href="https://community.tealiumiq.com/t5/Universal-Data-Hub/Consent-Change-Event-Specifications/ta-p/23213">Consent Logging</a> feature, which sends all consent status changes to UDH for auditing purposes.</p>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th>Parameters</th>
+<th>Description</th>
+<th>Example Value</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request -- Your request sucks.</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td>enabled</td>
+<td>Bool</td>
+<td>true (default: false)</td>
 </tr>
 </tbody></table>
+<h2 id='consent-logging-enabled'>Consent Logging Enabled?</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">isEnabled</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="nf">isConsentLoggingEnabled</span><span class="p">()</span>
+</code></pre>
+<p>Returns the current state of the consent logging feature.</p>
+<h2 id='set-consent-status-2'>Set Consent Status</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="nf">setConsentStatus</span><span class="p">(</span><span class="kt">TealiumConsentStatus</span><span class="p">)</span>
+</code></pre>
+<p>Sets the initial consent status for the user when the library starts up for the first time. If there are saved preferences, these will override any preferences passed in the config object.</p>
+
+<aside class="notice">Will always set the list of consented categories to include ALL available consent categories, if the status is <code>.consented</code>. Does not allow categories to be set selectively.</aside>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status</td>
+<td>A value from TealiumConsentStatus enum</td>
+<td>.consented/.notConsented</td>
+</tr>
+</tbody></table>
+<h2 id='set-consent-categories-2'>Set Consent Categories</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="nf">setConsentCategories</span><span class="p">([</span><span class="kt">TealiumConsentCategories</span><span class="p">])</span>
+</code></pre>
+<p>Sets the user&#39;s initial consent categories when the library starts up for the first time. If there are saved preferences, these will override any preferences passed in the config object.</p>
+
+<aside class="notice">Will always set consent status to <code>.consented</code>.</aside>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>categories</td>
+<td>An array of values from the TealiumConsentCategories enum</td>
+<td>[.analytics,.bigData]</td>
+</tr>
+</tbody></table>
+<h2 id='get-consent-status'>Get Consent Status</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">status</span><span class="p">:</span> <span class="kt">TealiumConsentStatus</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="nf">getConfigConsentStatus</span><span class="p">()</span>
+</code></pre>
+<p>Getter for the consent status currently set on the config object.</p>
+
+<aside class="notice">May not match the consent status set in the consentManager if the user has changed their preferences since the library launched.</aside>
+<h2 id='get-consent-categories'>Get Consent Categories</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">categories</span><span class="p">:</span> <span class="p">[</span><span class="kt">TealiumConsentCategories</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="nf">getConfigConsentCategories</span><span class="p">()</span>
+</code></pre>
+<p>Getter for the consent categories currently set on the config object.</p>
+
+<aside class="notice">May not match the consent categories set in the consentManager if the user has changed their preferences since the library launched.</aside>
+<h2 id='override-policy'>Override Policy</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="nf">setOverrideConsentPolicy</span><span class="p">(</span><span class="s">"mycustompolicy"</span><span class="p">)</span>
+</code></pre>
+<p>Overrides the default <code>policy</code> parameter. Default is <code>gdpr</code>.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>policy</td>
+<td>A string value describing the policy to set for consent logging purposes</td>
+<td>&quot;mycustompolicy&quot;</td>
+</tr>
+</tbody></table>
+<h2 id='get-policy-override'>Get Policy Override</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">currentPolicy</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="nf">getConfigConsentPolicy</span><span class="p">()</span>
+</code></pre>
+<p>Returns the current consent policy override, if applicable. Optional.</p>
+<h1 id='delegate-methods-tealiumconsentmanagerdelegate'>Delegate Methods (TealiumConsentManagerDelegate)</h1><h2 id='willdroptrackingcall'>willDropTrackingCall</h2><pre class="highlight swift tab-swift"><code><span class="kd">func</span> <span class="nf">willDropTrackingCall</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">TealiumTrackRequest</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"**** Tracking call DROPPED ******"</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="p">}</span>
+</code></pre>
+<p>This method is called whenever the consent manager is going to drop a tracking call (i.e. the user has declined tracking consent).</p>
+<h2 id='willqueuetrackingcall'>willQueueTrackingCall</h2><pre class="highlight swift tab-swift"><code><span class="kd">func</span> <span class="nf">willQueueTrackingCall</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">TealiumTrackRequest</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"**** Tracking call Queued ******"</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="p">}</span>
+</code></pre>
+<p>This method is called whenever the consent manager is in the &quot;not determined&quot; state, and tracking calls are being queued locally until the user grants or declines consent.</p>
+<h2 id='willsendtrackingcall'>willSendTrackingCall</h2><pre class="highlight swift tab-swift"><code><span class="kd">func</span> <span class="nf">willSendTrackingCall</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">TealiumTrackRequest</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"**** Tracking call Sent - 1st Helper ******"</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="p">}</span>
+</code></pre>
+<p>This method is called whenever the user has consented to tracking, and a tracking call is about to pass through the consent manager without being blocked.</p>
+<h2 id='consentstatechanged'>consentStateChanged</h2><pre class="highlight swift tab-swift"><code><span class="kd">func</span> <span class="nf">consentStateChanged</span><span class="p">(</span><span class="n">_</span> <span class="nv">state</span><span class="p">:</span> <span class="kt">TealiumConsentStatus</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+<p>This method is called whenver the consent state has been successfully updated.</p>
+<h2 id='userconsentedtotracking'>userConsentedToTracking</h2><pre class="highlight swift tab-swift"><code><span class="kd">func</span> <span class="nf">userConsentedToTracking</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"User Consented"</span><span class="p">)</span>
+    <span class="p">}</span>
+</code></pre>
+<p>This method is called whenever the consent state is changed to <code>.consented</code>.</p>
+<h2 id='useroptedoutoftracking'>userOptedOutOfTracking</h2><pre class="highlight swift tab-swift"><code><span class="kd">func</span> <span class="nf">userOptedOutOfTracking</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"User Declined Tracking"</span><span class="p">)</span>
+    <span class="p">}</span>
+</code></pre>
+<p>This method is called whenever the user declines/revokes consent (consent status: <code>.notConsented</code>).</p>
+<h2 id='userchangedconsentcategories'>userChangedConsentCategories</h2><pre class="highlight swift tab-swift"><code><span class="kd">func</span> <span class="nf">userChangedConsentCategories</span><span class="p">(</span><span class="nv">categories</span><span class="p">:</span> <span class="p">[</span><span class="kt">TealiumConsentCategories</span><span class="p">])</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"Categories Changed"</span><span class="p">)</span>
+    <span class="p">}</span>
+</code></pre>
+<p>This method is called whenever the user updates their consent categories preferences.</p>
+<h1 id='implemented-code-examples'>Implemented Code Examples</h1><h2 id='use-case-1-simple-opt-in'>Use Case 1: Simple Opt-in</h2><pre class="highlight swift tab-swift"><code>    <span class="kd">func</span> <span class="nf">setConsentStatusSimple</span><span class="p">(</span><span class="n">_</span> <span class="nv">consented</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">status</span><span class="p">:</span> <span class="kt">TealiumConsentStatus</span> <span class="o">=</span> <span class="n">consented</span> <span class="p">?</span> <span class="o">.</span><span class="nv">consented</span><span class="p">:</span> <span class="o">.</span><span class="n">notConsented</span> 
+        <span class="k">self</span><span class="o">.</span><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">setConsentStatus</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+    <span class="p">}</span>
+</code></pre>
+<p>This example shows you how to give your users a simple &quot;Opt-in/Opt-out&quot; option. If the user consents, they will be automatically opted-in to all tracking categories. If they revoke their consent, no categories will be active, and no tracking calls will be sent.</p>
+
+<p>Define and call the following method in your Tealium Helper class when your app user consents to or declines tracking. If the user consents to tracking, the Consent Manager will automatically opt them in to all tracking categories.</p>
+<h2 id='use-case-2-grouped-opt-in'>Use Case 2: Grouped Opt-in</h2><pre class="highlight swift tab-swift"><code><span class="kd">func</span> <span class="nf">updateConsentPreferences</span><span class="p">(</span><span class="n">_</span> <span class="nv">dict</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">])</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="k">let</span> <span class="nv">status</span> <span class="o">=</span> <span class="n">dict</span><span class="p">[</span><span class="s">"consentStatus"</span><span class="p">]</span> <span class="k">as?</span> <span class="kt">String</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="nv">tealiumConsentCategories</span> <span class="o">=</span> <span class="p">[</span><span class="kt">TealiumConsentCategories</span><span class="p">]()</span>
+        <span class="k">let</span> <span class="nv">tealiumConsentStatus</span> <span class="o">=</span> <span class="p">(</span><span class="n">status</span> <span class="o">==</span> <span class="s">"consented"</span><span class="p">)</span> <span class="p">?</span> <span class="kt">TealiumConsentStatus</span><span class="o">.</span><span class="nv">consented</span> <span class="p">:</span> <span class="kt">TealiumConsentStatus</span><span class="o">.</span><span class="n">notConsented</span>
+        <span class="k">if</span> <span class="k">let</span> <span class="nv">categories</span> <span class="o">=</span> <span class="n">dict</span><span class="p">[</span><span class="s">"consentCategories"</span><span class="p">]</span> <span class="k">as?</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span> <span class="p">{</span>
+            <span class="n">tealiumConsentCategories</span> <span class="o">=</span> <span class="kt">TealiumConsentCategories</span><span class="o">.</span><span class="nf">consentCategoriesStringArrayToEnum</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">setConsentStatusWithCategories</span><span class="p">(</span><span class="nv">status</span><span class="p">:</span> <span class="n">tealiumConsentStatus</span><span class="p">,</span> <span class="nv">categories</span><span class="p">:</span> <span class="n">tealiumConsentCategories</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// example function to define groups of categories, and set the consent preferences in the consentManager API. Should be called when the user saves their preferences</span>
+
+<span class="kd">func</span> <span class="nf">setUserConsentPreferences</span><span class="p">(){</span>
+    <span class="c1">// define a dictionary containing grouped categories</span>
+    <span class="k">let</span> <span class="nv">consentGroups</span> <span class="o">=</span> <span class="p">[</span><span class="s">"Off"</span> <span class="p">:</span> <span class="p">[],</span>
+            <span class="s">"Performance"</span><span class="p">:</span> <span class="p">[</span><span class="s">"analytics"</span><span class="p">,</span> <span class="s">"monitoring"</span><span class="p">,</span> <span class="s">"big_data"</span><span class="p">,</span> <span class="s">"mobile"</span><span class="p">,</span> <span class="s">"crm"</span><span class="p">],</span>
+            <span class="s">"Marketing"</span><span class="p">:</span> <span class="p">[</span><span class="s">"analytics"</span><span class="p">,</span> <span class="s">"monitoring"</span><span class="p">,</span> <span class="s">"big_data"</span><span class="p">,</span> <span class="s">"mobile"</span><span class="p">,</span> <span class="s">"crm"</span><span class="p">,</span> <span class="s">"affiliates"</span><span class="p">,</span> <span class="s">"email"</span><span class="p">,</span> <span class="s">"search"</span><span class="p">,</span> <span class="s">"engagement"</span><span class="p">,</span> <span class="s">"cdp"</span><span class="p">],</span>
+            <span class="s">"Personalized Advertising"</span><span class="p">:</span> <span class="p">[</span><span class="s">"analytics"</span><span class="p">,</span> <span class="s">"monitoring"</span><span class="p">,</span> <span class="s">"big_data"</span><span class="p">,</span> <span class="s">"mobile"</span><span class="p">,</span> <span class="s">"crm"</span><span class="p">,</span> <span class="s">"affiliates"</span><span class="p">,</span> <span class="s">"email"</span><span class="p">,</span> <span class="s">"search"</span><span class="p">,</span> <span class="s">"engagement"</span><span class="p">,</span> <span class="s">"cdp"</span><span class="p">,</span> <span class="s">"display_ads"</span><span class="p">,</span> <span class="s">"personalization"</span><span class="p">,</span> <span class="s">"social"</span><span class="p">,</span> <span class="s">"cookiematch"</span><span class="p">,</span> <span class="s">"misc"</span><span class="p">]]</span>
+
+    <span class="c1">// this is the user's selected preferences level. Would usually be dynamic in a real app</span>
+    <span class="k">let</span> <span class="nv">userSelection</span> <span class="o">=</span> <span class="s">"Marketing"</span>
+
+    <span class="k">if</span> <span class="k">let</span> <span class="nv">userList</span> <span class="o">=</span> <span class="n">consentGroups</span><span class="p">[</span><span class="n">userSelection</span><span class="p">]</span> <span class="p">{</span>
+      <span class="k">let</span> <span class="nv">settingsDict</span> <span class="o">=</span> <span class="p">[</span><span class="s">"consentStatus"</span><span class="p">:</span> <span class="s">"consented"</span><span class="p">,</span> <span class="s">"consentCategories"</span><span class="p">:</span> <span class="n">userList</span><span class="p">]</span>
+
+      <span class="nf">updateConsentPreferences</span><span class="p">(</span><span class="n">settingsDict</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre>
+<p>This example shows a category-based consent model, where tracking categories are grouped into a smaller number of higher-level categories, defined by you. For example, you may choose to group the Tealium consent categories &quot;big_data&quot;, &quot;analytics&quot;, and &quot;monitoring&quot; under a single category called &quot;performance&quot;. This may be easier for the user than selecting from the full list of categories. You may choose to represent this in a slider interface, ranging from least-permissive to most-permissive (all categories).</p>
+<h2 id='use-case-3-category-based-opt-in'>Use Case 3: Category-based Opt-in</h2><pre class="highlight swift tab-swift"><code><span class="c1">// helper method to call Tealium consentManager API</span>
+<span class="kd">func</span> <span class="nf">updateConsentPreferences</span><span class="p">(</span><span class="n">_</span> <span class="nv">dict</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">])</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="k">let</span> <span class="nv">status</span> <span class="o">=</span> <span class="n">dict</span><span class="p">[</span><span class="s">"consentStatus"</span><span class="p">]</span> <span class="k">as?</span> <span class="kt">String</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="nv">tealiumConsentCategories</span> <span class="o">=</span> <span class="p">[</span><span class="kt">TealiumConsentCategories</span><span class="p">]()</span>
+        <span class="k">let</span> <span class="nv">tealiumConsentStatus</span> <span class="o">=</span> <span class="p">(</span><span class="n">status</span> <span class="o">==</span> <span class="s">"consented"</span><span class="p">)</span> <span class="p">?</span> <span class="kt">TealiumConsentStatus</span><span class="o">.</span><span class="nv">consented</span> <span class="p">:</span> <span class="kt">TealiumConsentStatus</span><span class="o">.</span><span class="n">notConsented</span>
+        <span class="k">if</span> <span class="k">let</span> <span class="nv">categories</span> <span class="o">=</span> <span class="n">dict</span><span class="p">[</span><span class="s">"consentCategories"</span><span class="p">]</span> <span class="k">as?</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span> <span class="p">{</span>
+            <span class="n">tealiumConsentCategories</span> <span class="o">=</span> <span class="kt">TealiumConsentCategories</span><span class="o">.</span><span class="nf">consentCategoriesStringArrayToEnum</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">setConsentStatusWithCategories</span><span class="p">(</span><span class="nv">status</span><span class="p">:</span> <span class="n">tealiumConsentStatus</span><span class="p">,</span> <span class="nv">categories</span><span class="p">:</span> <span class="n">tealiumConsentCategories</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// example function to take a list of categories and pass to the Tealium consentManager API</span>
+
+<span class="kd">func</span> <span class="nf">setUserConsentPreferences</span><span class="p">(</span><span class="n">_</span> <span class="nv">categories</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]){</span>
+
+    <span class="k">let</span> <span class="nv">settingsDict</span> <span class="o">=</span> <span class="p">[</span><span class="s">"consentStatus"</span><span class="p">:</span> <span class="s">"consented"</span><span class="p">,</span> <span class="s">"consentCategories"</span><span class="p">:</span> <span class="n">categories</span><span class="p">]</span>  
+    <span class="nf">updateConsentPreferences</span><span class="p">(</span><span class="n">settingsDict</span><span class="p">)</span>
+<span class="p">}</span>
+
+</code></pre>
+<p>This example shows a category-based consent model where the user must explicitly select each category from the full list of categories. The default state is &quot;Not Yet Determined&quot;, which will queue hits until the user provides their consent. If the user consents to any category, events are de-queued, and the consented category data is appended to each tracking call.</p>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="swift">Swift</a>
+                <a href="#" data-language-name="objective_c">Objective-C</a>
+                <a href="#" data-language-name="java">Java</a>
+                <a href="#" data-language-name="kotlin">Kotlin</a>
           </div>
       </div>
     </div>
