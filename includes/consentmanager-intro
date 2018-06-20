@@ -1,0 +1,21 @@
+<h1 id='mobile-consent-manager'>Mobile Consent Manager</h1>
+<p>This module provides a convenient implementation of the <a href="https://community.tealiumiq.com/t5/iQ-Tag-Management/Explicit-Consent-Prompt-Manager/ta-p/22714">Tealium Consent Manager</a>, which can help your app to comply with legal obligations, such as GDPR. Once implemented, your user will be able to easily consent to or decline tracking, and the Tealium SDK will store and respect their choice from that point on.</p>
+<h2 id='how-it-works'>How It Works</h2>
+<p>The Consent Manager module is enabled by default. In its default state, before any consent preferences have been set, it will queue all events received prior to the initial consent being granted by the user (the &quot;not determined&quot; state). It will continue doing this until such point as the user consents, or revokes their consent. At the point where the app user makes a selection, the following will happen:</p>
+<h3 id='if-the-user-consents-to-tracking'>If the user consents to tracking</h3>
+<ul>
+<li>All previously-queued tracking calls will be sent</li>
+<li>The user&#39;s consent state will be stored permanently, and will be checked each time a new tracking call is made</li>
+<li>If the user has set customized preferences, and consented only to specific categories, these categories will be respected when tags or connectors are fired in Tealium iQ and EventStream respectively</li>
+<li>If <a href="https://community.tealiumiq.com/t5/Universal-Data-Hub/Consent-Change-Event-Specifications/ta-p/23213">Consent Logging</a> is enabled, a single tracking call will be sent to UDH, to keep track of the user&#39;s consent preferences for auditing purposes only.</li>
+</ul>
+<h3 id='if-the-user-grants-partial-consent-selected-categories'>If the user grants partial consent (selected categories)</h3>
+<ul>
+<li>If <a href="https://community.tealiumiq.com/t5/Universal-Data-Hub/Consent-Change-Event-Specifications/ta-p/23213">Consent Logging</a> is enabled, a single tracking call will be sent to UDH, to keep track of the user&#39;s consent preferences for auditing purposes only</li>
+</ul>
+<h3 id='if-the-user-declines-tracking'>If the user declines tracking</h3>
+<ul>
+<li>All previously-queued tracking calls will be purged from the queue</li>
+<li>All future tracking calls will be canceled</li>
+<li>No events will be sent to the UDH. Declined consent state cannot be tracked in the UDH.</li>
+</ul>

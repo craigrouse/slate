@@ -1,0 +1,98 @@
+<h1 id='tealiumconfig-methods'>TealiumConfig Methods</h1><h2 id='setconsentloggingenabled'>setConsentLoggingEnabled</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="nf">setConsentLoggingEnabled</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</code></pre>
+<p>Enables the <a href="https://community.tealiumiq.com/t5/Universal-Data-Hub/Consent-Change-Event-Specifications/ta-p/23213">Consent Logging</a> feature, which sends all consent status changes to UDH for auditing purposes.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>enabled</td>
+<td>Bool</td>
+<td>true (default: false)</td>
+</tr>
+</tbody></table>
+<h3 id='hello'>Hello</h3><h2 id='isconsentloggingenabled'>isConsentLoggingEnabled</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">isEnabled</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="nf">isConsentLoggingEnabled</span><span class="p">()</span>
+</code></pre>
+<p>Returns the current state of the consent logging feature.</p>
+<h2 id='setconsentstatus'>setConsentStatus</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="nf">setConsentStatus</span><span class="p">(</span><span class="kt">TealiumConsentStatus</span><span class="p">)</span>
+</code></pre>
+<p>Sets the initial consent status for the user when the library starts up for the first time. If there are saved preferences, these will override any preferences passed in the config object.</p>
+
+<aside class="notice">Will always set the list of consented categories to include ALL available consent categories, if the status is <code>.consented</code>. Does not allow categories to be set selectively.</aside>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status</td>
+<td>A value from TealiumConsentStatus enum</td>
+<td>.consented/.notConsented</td>
+</tr>
+</tbody></table>
+<h2 id='setconsentcategories'>setConsentCategories</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="nf">setConsentCategories</span><span class="p">([</span><span class="kt">TealiumConsentCategories</span><span class="p">])</span>
+</code></pre><pre class="highlight objective_c tab-objective_c"><code><span class="n">let</span> <span class="n">config</span> <span class="o">=</span> <span class="n">TealiumConfig</span><span class="p">(...)</span>
+<span class="n">config</span><span class="p">.</span><span class="n">setConsentCategories</span><span class="p">([</span><span class="nf">TealiumConsentCategories</span><span class="p">])</span>
+</code></pre>
+<p>Sets the user&#39;s initial consent categories when the library starts up for the first time. If there are saved preferences, these will override any preferences passed in the config object.</p>
+
+<aside class="notice">Will always set consent status to <code>.consented</code>.</aside>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>categories</td>
+<td>An array of values from the TealiumConsentCategories enum</td>
+<td>[.analytics,.bigData]</td>
+</tr>
+</tbody></table>
+<h2 id='getconfigconsentstatus'>getConfigConsentStatus</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">status</span><span class="p">:</span> <span class="kt">TealiumConsentStatus</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="nf">getConfigConsentStatus</span><span class="p">()</span>
+</code></pre>
+<p>Getter for the consent status currently set on the config object.</p>
+
+<aside class="notice">May not match the consent status set in the consentManager if the user has changed their preferences since the library launched.</aside>
+<h2 id='getconfigconsentcategories'>getConfigConsentCategories</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">categories</span><span class="p">:</span> <span class="p">[</span><span class="kt">TealiumConsentCategories</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="nf">getConfigConsentCategories</span><span class="p">()</span>
+</code></pre>
+<p>Getter for the consent categories currently set on the config object.</p>
+
+<aside class="notice">May not match the consent categories set in the consentManager if the user has changed their preferences since the library launched.</aside>
+<h2 id='setoverrideconsentpolicy'>setOverrideConsentPolicy</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="nf">setOverrideConsentPolicy</span><span class="p">(</span><span class="s">"mycustompolicy"</span><span class="p">)</span>
+</code></pre>
+<p>Overrides the default <code>policy</code> parameter. Default is <code>gdpr</code>.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>policy</td>
+<td>A string value describing the policy to set for consent logging purposes</td>
+<td>&quot;mycustompolicy&quot;</td>
+</tr>
+</tbody></table>
+<h2 id='getconfigconsentpolicy'>getConfigConsentPolicy</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">currentPolicy</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="nf">getConfigConsentPolicy</span><span class="p">()</span>
+</code></pre>
+<p>Returns the current consent policy override, if applicable. Optional.</p>

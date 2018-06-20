@@ -1,0 +1,38 @@
+<h1 id='delegate-methods-tealiumconsentmanagerdelegate'>Delegate Methods (TealiumConsentManagerDelegate)</h1><h2 id='willdroptrackingcall'>willDropTrackingCall</h2><pre class="highlight swift tab-swift"><code><span class="kd">func</span> <span class="nf">willDropTrackingCall</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">TealiumTrackRequest</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"**** Tracking call DROPPED ******"</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="p">}</span>
+</code></pre>
+<p>This method is called whenever the consent manager is going to drop a tracking call (i.e. the user has declined tracking consent).</p>
+<h2 id='willqueuetrackingcall'>willQueueTrackingCall</h2><pre class="highlight swift tab-swift"><code><span class="kd">func</span> <span class="nf">willQueueTrackingCall</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">TealiumTrackRequest</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"**** Tracking call Queued ******"</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="p">}</span>
+</code></pre>
+<p>This method is called whenever the consent manager is in the &quot;not determined&quot; state, and tracking calls are being queued locally until the user grants or declines consent.</p>
+<h2 id='willsendtrackingcall'>willSendTrackingCall</h2><pre class="highlight swift tab-swift"><code><span class="kd">func</span> <span class="nf">willSendTrackingCall</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">TealiumTrackRequest</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"**** Tracking call Sent - 1st Helper ******"</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="p">}</span>
+</code></pre>
+<p>This method is called whenever the user has consented to tracking, and a tracking call is about to pass through the consent manager without being blocked.</p>
+<h2 id='consentstatechanged'>consentStateChanged</h2><pre class="highlight swift tab-swift"><code><span class="kd">func</span> <span class="nf">consentStateChanged</span><span class="p">(</span><span class="n">_</span> <span class="nv">state</span><span class="p">:</span> <span class="kt">TealiumConsentStatus</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+<p>This method is called whenver the consent state has been successfully updated.</p>
+<h2 id='userconsentedtotracking'>userConsentedToTracking</h2><pre class="highlight swift tab-swift"><code><span class="kd">func</span> <span class="nf">userConsentedToTracking</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"User Consented"</span><span class="p">)</span>
+    <span class="p">}</span>
+</code></pre>
+<p>This method is called whenever the consent state is changed to <code>.consented</code>.</p>
+<h2 id='useroptedoutoftracking'>userOptedOutOfTracking</h2><pre class="highlight swift tab-swift"><code><span class="kd">func</span> <span class="nf">userOptedOutOfTracking</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"User Declined Tracking"</span><span class="p">)</span>
+    <span class="p">}</span>
+</code></pre>
+<p>This method is called whenever the user declines/revokes consent (consent status: <code>.notConsented</code>).</p>
+<h2 id='userchangedconsentcategories'>userChangedConsentCategories</h2><pre class="highlight swift tab-swift"><code><span class="kd">func</span> <span class="nf">userChangedConsentCategories</span><span class="p">(</span><span class="nv">categories</span><span class="p">:</span> <span class="p">[</span><span class="kt">TealiumConsentCategories</span><span class="p">])</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"Categories Changed"</span><span class="p">)</span>
+    <span class="p">}</span>
+</code></pre>
+<p>This method is called whenever the user updates their consent categories preferences.</p>

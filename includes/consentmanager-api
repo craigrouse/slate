@@ -1,0 +1,115 @@
+<h1 id='api-reference'>API Reference</h1><h2 id='consentmanager'>consentManager</h2><pre class="highlight swift tab-swift"><code><span class="kd">class</span> <span class="kt">MyClass</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">teal</span><span class="p">:</span> <span class="kt">Tealium</span><span class="p">?</span>
+
+    <span class="kd">public</span> <span class="nf">init</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="nv">account</span><span class="p">:</span> <span class="s">"&lt;youraccount&gt;"</span><span class="p">,</span>
+                                   <span class="nv">profile</span><span class="p">:</span> <span class="s">"demo"</span><span class="p">,</span>
+                                   <span class="nv">environment</span><span class="p">:</span> <span class="s">"dev"</span><span class="p">,</span>
+                                   <span class="nv">datasource</span><span class="p">:</span> <span class="s">"abc123"</span><span class="p">,</span>
+                                   <span class="nv">optionalData</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+
+        <span class="k">self</span><span class="o">.</span><span class="n">teal</span> <span class="o">=</span> <span class="kt">Tealium</span><span class="p">(</span><span class="n">config</span><span class="p">)</span> <span class="p">{</span> 
+            <span class="c1">// Note: this is inside the completion block after initialization</span>
+
+            <span class="c1">// self.teal is guaranteed to be initialized inside the completion block</span>
+            <span class="k">self</span><span class="o">.</span><span class="n">teal</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="err">###</span> <span class="c1">// where ### is any public API method on the consentManager object</span>
+
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre>
+<p>This code shows how to access the consent manager</p>
+<h2 id='addconsentdelegate'>addConsentDelegate</h2><pre class="highlight swift tab-swift"><code><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">addConsentDelegate</span><span class="p">(</span><span class="k">self</span><span class="p">)</span>
+</code></pre>
+<p>Registers a specific class conforming to the TealiumConsentDelegate protocol</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>delegate</td>
+<td>A class conforming to TealiumConsentDelegate</td>
+</tr>
+</tbody></table>
+<h2 id='removeallconsentdelegates'>removeAllConsentDelegates</h2><pre class="highlight swift tab-swift"><code><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">removeAllConsentDelegates</span><span class="p">()</span>
+</code></pre>
+<p>Removes all consent delegates added by you. Retains the built-in delegate created by the TealiumConsentManagerModule class.</p>
+<h2 id='setconsentstatus'>setConsentStatus</h2><pre class="highlight swift tab-swift"><code><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">setConsentStatus</span><span class="p">(</span><span class="o">.</span><span class="n">consented</span><span class="p">)</span>
+</code></pre>
+<p>Sets the user&#39;s current consent status. Designed to be called from your consent management preferences screen in your app when the user enables or disables tracking.</p>
+
+<aside class="notice">
+Will always set the list of consented categories to include ALL available consent categories, if the status is <code>.consented</code>. Does not allow categories to be set selectively.
+</aside>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status</td>
+<td>A value from TealiumConsentStatus enum</td>
+<td><code>.consented</code>/<code>.notConsented</code></td>
+</tr>
+</tbody></table>
+<h2 id='setconsentcategories'>setConsentCategories</h2><pre class="highlight swift tab-swift"><code><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">setConsentCategories</span><span class="p">([</span><span class="o">.</span><span class="n">analytics</span><span class="p">,</span><span class="o">.</span><span class="n">bigData</span><span class="p">])</span>
+</code></pre>
+<p>Sets the user&#39;s current consent categories. Designed to be called from your consent management preferences screen in your app. </p>
+
+<aside class="notice">Will always set consent status to <code>.consented</code>.</aside>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>categories</td>
+<td>An array of values from the TealiumConsentCategories enum</td>
+<td><code>[.analytics,.bigData]</code></td>
+</tr>
+</tbody></table>
+<h2 id='setconsentstatuswithcategories'>setConsentStatusWithCategories</h2><pre class="highlight swift tab-swift"><code><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">setConsentStatusWithCategories</span><span class="p">(</span><span class="nv">status</span><span class="p">:</span> <span class="o">.</span><span class="n">consented</span><span class="p">,</span> <span class="nv">categories</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="n">analytics</span><span class="p">])</span>
+</code></pre>
+<p>Sets consent status and categories in a single call.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status</td>
+<td>A value from TealiumConsentStatus enum</td>
+<td><code>.consented</code>/<code>.notConsented</code></td>
+</tr>
+<tr>
+<td>categories</td>
+<td>An array of values from the TealiumConsentCategories enum</td>
+<td><code>[.analytics]</code></td>
+</tr>
+</tbody></table>
+<h2 id='currentconsentstatus'>currentConsentStatus</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">consentStatus</span><span class="p">:</span> <span class="kt">TealiumConsentStatus</span><span class="p">?</span> <span class="o">=</span> <span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">currentConsentStatus</span><span class="p">()</span>
+</code></pre>
+<p>Returns the current consent status</p>
+<h2 id='currentconsentcategories'>currentConsentCategories</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">consentCategories</span><span class="p">:</span> <span class="p">[</span><span class="kt">TealiumConsentCategories</span><span class="p">]?</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">currentConsentCategories</span><span class="p">()</span>
+</code></pre>
+<p>Returns the current consent categories</p>
+<h2 id='currentconsentpreferences'>currentConsentPreferences</h2><pre class="highlight swift tab-swift"><code><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="n">currentConsentPreferences</span> <span class="o">-&gt;</span> <span class="kt">TealiumConsentUserPreferences</span>
+</code></pre>
+<p>Returns the TealiumConsentUserPreferences object (by value -&gt; struct)</p>
+<h2 id='clearstoredconsentpreferences'>clearStoredConsentPreferences</h2><pre class="highlight swift tab-swift"><code><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">clearUserConsentPreferences</span><span class="p">()</span>
+</code></pre>
+<p>Clears all currently stored consent preferences. Reverts to &quot;not determined&quot; consent state, with no categories.</p>

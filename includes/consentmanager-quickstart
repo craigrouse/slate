@@ -1,0 +1,14 @@
+<h1 id='quick-start'>Quick Start</h1>
+<p>This quick start guide shows the basic API usage only. Please see API reference for full description of API methods.</p>
+<h2 id='consent-granted'>Consent Granted</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">self</span><span class="o">.</span><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">setConsentStatus</span><span class="p">(</span><span class="o">.</span><span class="n">consented</span><span class="p">)</span>
+</code></pre>
+<p>User granted tracking consent (all categories)</p>
+<h2 id='consent-declined'>Consent Declined</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">self</span><span class="o">.</span><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">setConsentStatus</span><span class="p">(</span><span class="o">.</span><span class="n">notConsented</span><span class="p">)</span>
+</code></pre>
+<p>User declined tracking consent (all categories)</p>
+<h2 id='partial-consent-granted'>Partial Consent Granted</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">self</span><span class="o">.</span><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">setConsentCategories</span><span class="p">([</span><span class="o">.</span><span class="n">analytics</span><span class="p">,</span><span class="o">.</span><span class="n">bigData</span><span class="p">,</span><span class="o">.</span><span class="n">monitoring</span><span class="p">])</span>
+</code></pre>
+<p>User granted consent only for specified tracking categories</p>
