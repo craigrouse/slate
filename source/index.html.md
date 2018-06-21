@@ -15,6 +15,7 @@ includes:
   - consentmanager-quickstart.md
   - consentmanager-api.md
   - consentmanager-tealiumconfig.md
+  - consentmanager-enums-constants.md
   - consentmanager-delegate.md
   - consentmanager-examples.md
 

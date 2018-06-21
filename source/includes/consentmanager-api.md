@@ -108,7 +108,7 @@ Returns the current consent categories
 ## currentConsentPreferences
 
 ```swift
-tealium?.consentManager()?.currentConsentPreferences -> TealiumConsentUserPreferences
+let prefs: TealiumConsentUserPreferences? = tealium?.consentManager()?.currentConsentPreferences()
 ```
 Returns the TealiumConsentUserPreferences object (by value -> struct)
 

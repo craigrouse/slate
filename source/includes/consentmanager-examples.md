@@ -42,7 +42,7 @@ func setUserConsentPreferences(){
 	let userSelection = "Marketing"
 	
 	if let userList = consentGroups[userSelection] {
-	  let settingsDict = ["consentStatus": "consented", "consentCategories": userList]
+	  let settingsDict: [String: Any] = ["consentStatus": "consented", "consentCategories": userList]
 	  
 	  updateConsentPreferences(settingsDict)
 	}
@@ -73,7 +73,7 @@ func updateConsentPreferences(_ dict: [String: Any]) {
 
 func setUserConsentPreferences(_ categories: [String]){
 
-	let settingsDict = ["consentStatus": "consented", "consentCategories": categories]  
+	let settingsDict: [String: Any] = ["consentStatus": "consented", "consentCategories": categories]  
 	updateConsentPreferences(settingsDict)
 }
 

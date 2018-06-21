@@ -24,3 +24,7 @@ let config = TealiumConfig(...)
 self.tealium?.consentManager()?.setConsentCategories([.analytics,.bigData,.monitoring])
 ```
 User granted consent only for specified tracking categories
+
+## Get All Consent Categories
+
+See [all](#all)

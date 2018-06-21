@@ -24,7 +24,7 @@ This method is called whenever the consent manager is in the "not determined" st
 
 ```swift
 func willSendTrackingCall(_ request: TealiumTrackRequest) {
-        print("**** Tracking call Sent - 1st Helper ******")
+        print("**** Tracking call Sent")
         print(request.data)
     }
 ```
