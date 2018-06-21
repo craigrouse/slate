@@ -1,0 +1,71 @@
+<h1 id='enums-and-constants'>Enums and Constants</h1><h2 id='tealiumconsentcategories'>TealiumConsentCategories</h2><h3 id='enum-values'>Enum Values</h3><pre class="highlight swift tab-swift"><code><span class="o">.</span><span class="n">analytics</span>
+<span class="o">.</span><span class="n">affiliates</span>
+<span class="o">.</span><span class="n">displayAds</span>
+<span class="o">.</span><span class="n">email</span>
+<span class="o">.</span><span class="n">personalization</span>
+<span class="o">.</span><span class="n">search</span>
+<span class="o">.</span><span class="n">social</span>
+<span class="o">.</span><span class="n">bigData</span>
+<span class="o">.</span><span class="n">mobile</span>
+<span class="o">.</span><span class="n">engagement</span>
+<span class="o">.</span><span class="n">monitoring</span>
+<span class="o">.</span><span class="n">cdm</span>
+<span class="o">.</span><span class="n">cdp</span>
+<span class="o">.</span><span class="n">cookiematch</span>
+<span class="o">.</span><span class="n">misc</span>
+</code></pre>
+<p>This enum contains the complete list of supported consent categories.
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
+<h3 id='all'>all</h3><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">allCategories</span><span class="p">:</span> <span class="p">[</span><span class="kt">TealiumConsentCategories</span><span class="p">]</span> <span class="o">=</span> <span class="kt">TealiumConsentCategories</span><span class="o">.</span><span class="nf">all</span><span class="p">()</span>
+</code></pre>
+<p>Returns the complete list of supported consent categories.</p>
+<h3 id='consentcategoriesstringarraytoenum'>consentCategoriesStringArrayToEnum</h3><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">selectCategories</span><span class="p">:</span> <span class="p">[</span><span class="kt">TealiumConsentCategories</span><span class="p">]</span> <span class="o">=</span> <span class="kt">TealiumConsentCategories</span><span class="o">.</span><span class="nf">consentCategoriesStringArrayToEnum</span><span class="p">([</span><span class="s">"analytics"</span><span class="p">,</span><span class="s">"bigData"</span><span class="p">])</span>
+</code></pre>
+<p>Converts an array of strings containing valid consent categories to an array of enum values. Invalid string values will be omitted from the resulting array.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>[String]</td>
+<td>An array of strings to convert into an array of TealiumConsentCategories</td>
+<td>[&quot;analytics&quot;, &quot;bigData&quot;]</td>
+</tr>
+</tbody></table>
+<h2 id='tealiumconsentstatus'>TealiumConsentStatus</h2><h3 id='notdetermined'>notDetermined</h3><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">status</span><span class="p">:</span> <span class="kt">TealiumConsentStatus</span> <span class="o">=</span> <span class="o">.</span><span class="n">notDetermined</span>
+</code></pre>
+<p>The <code>notDetermined</code> status is the default setting for the consent manager. In this state, the consent manager will queue events locally until an affirmative <code>consented</code>/<code>notConsented</code> status is provided.</p>
+<h3 id='consented'>consented</h3><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">status</span><span class="p">:</span> <span class="kt">TealiumConsentStatus</span> <span class="o">=</span> <span class="o">.</span><span class="n">consented</span>
+</code></pre>
+<p>The <code>consented</code> status is set when the user has consented to tracking. In this state, the consent manager allow all tracking calls to continue as normal.</p>
+<h3 id='notconsented'>notConsented</h3><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">status</span><span class="p">:</span> <span class="kt">TealiumConsentStatus</span> <span class="o">=</span> <span class="o">.</span><span class="n">notConsented</span>
+</code></pre>
+<p>The <code>notConsented</code> status is set when the user has declined tracking. In this state, the consent manager will drop all tracking calls and halt further processing by the SDK.</p>
+<h2 id='tealiumconsentconstants-internal'>TealiumConsentConstants (Internal)</h2><pre class="highlight swift tab-swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">TealiumConsentConstants</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">consentCategoriesKey</span> <span class="o">=</span> <span class="s">"consent_categories"</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">trackingConsentedKey</span> <span class="o">=</span> <span class="s">"tracking_consented"</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">consentGrantedEventName</span> <span class="o">=</span> <span class="s">"grant_full_consent"</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">consentDeclinedEventName</span> <span class="o">=</span> <span class="s">"decline_consent"</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">consentPartialEventName</span> <span class="o">=</span> <span class="s">"grant_partial_consent"</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">privacySettingEvent</span> <span class="o">=</span> <span class="s">"update_consent_cookie"</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">moduleName</span> <span class="o">=</span> <span class="s">"consentmanager"</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">consentLoggingEnabled</span> <span class="o">=</span> <span class="s">"consent_manager_enabled"</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">consentStatus</span> <span class="o">=</span> <span class="s">"consent_status"</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">policyKey</span> <span class="o">=</span> <span class="s">"policy"</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">defaultPolicy</span> <span class="o">=</span> <span class="s">"gdpr"</span>
+<span class="p">}</span>
+</code></pre>
+<p>This enum is used internally by the SDK to provide a central place to configure static key names.</p>
+<h2 id='tealiumconsenttrackaction-internal'>TealiumConsentTrackAction (Internal)</h2><h3 id='trackingallowed'>trackingAllowed</h3><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">TealiumConsentTrackAction</span> <span class="o">=</span> <span class="o">.</span><span class="n">trackingAllowed</span>
+</code></pre>
+<p>Used internally by the consent manager to determine that tracking is allowed, and tracking calls should pass through the module for further processing.</p>
+<h3 id='trackingforbidden'>trackingForbidden</h3><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">TealiumConsentTrackAction</span> <span class="o">=</span> <span class="o">.</span><span class="n">trackingForbidden</span>
+</code></pre>
+<p>Used internally by the consent manager to determine that tracking is forbidden, and tracking calls should be blocked.</p>
+<h3 id='queue'>queue</h3><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">TealiumConsentTrackAction</span> <span class="o">=</span> <span class="o">.</span><span class="n">queue</span>
+</code></pre>
+<p>Used internally by the consent manager to indicate that the consent state is currently not determined, and tracking calls should be queued locally until the consent state is known.</p>

@@ -12,3 +12,5 @@
 <span class="k">self</span><span class="o">.</span><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">setConsentCategories</span><span class="p">([</span><span class="o">.</span><span class="n">analytics</span><span class="p">,</span><span class="o">.</span><span class="n">bigData</span><span class="p">,</span><span class="o">.</span><span class="n">monitoring</span><span class="p">])</span>
 </code></pre>
 <p>User granted consent only for specified tracking categories</p>
+<h2 id='get-all-consent-categories'>Get All Consent Categories</h2>
+<p>See <a href="#all">all</a></p>

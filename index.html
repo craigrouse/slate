@@ -252,6 +252,9 @@
                   <li>
                     <a href="#partial-consent-granted" class="toc-h2 toc-link" data-title="partial-consent-granted">Partial Consent Granted</a>
                   </li>
+                  <li>
+                    <a href="#get-all-consent-categories" class="toc-h2 toc-link" data-title="get-all-consent-categories">Get All Consent Categories</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -294,32 +297,77 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#setconsentloggingenabled" class="toc-h2 toc-link" data-title="setconsentloggingenabled">setConsentLoggingEnabled</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#hello" class="toc-h3 toc-link" data-title="TealiumConfig Methods">Hello</a>
-                          </li>
-                      </ul>
                   </li>
                   <li>
                     <a href="#isconsentloggingenabled" class="toc-h2 toc-link" data-title="isconsentloggingenabled">isConsentLoggingEnabled</a>
                   </li>
                   <li>
-                    <a href="#setconsentstatus" class="toc-h2 toc-link" data-title="setconsentstatus">setConsentStatus</a>
+                    <a href="#setinitialconsentstatus" class="toc-h2 toc-link" data-title="setinitialconsentstatus">setInitialConsentStatus</a>
                   </li>
                   <li>
-                    <a href="#setconsentcategories" class="toc-h2 toc-link" data-title="setconsentcategories">setConsentCategories</a>
+                    <a href="#setinitialconsentcategories" class="toc-h2 toc-link" data-title="setinitialconsentcategories">setInitialConsentCategories</a>
                   </li>
                   <li>
-                    <a href="#getconfigconsentstatus" class="toc-h2 toc-link" data-title="getconfigconsentstatus">getConfigConsentStatus</a>
+                    <a href="#getinitialconsentstatus" class="toc-h2 toc-link" data-title="getinitialconsentstatus">getInitialConsentStatus</a>
                   </li>
                   <li>
-                    <a href="#getconfigconsentcategories" class="toc-h2 toc-link" data-title="getconfigconsentcategories">getConfigConsentCategories</a>
+                    <a href="#getinitialconsentcategories" class="toc-h2 toc-link" data-title="getinitialconsentcategories">getInitialConsentCategories</a>
                   </li>
                   <li>
                     <a href="#setoverrideconsentpolicy" class="toc-h2 toc-link" data-title="setoverrideconsentpolicy">setOverrideConsentPolicy</a>
                   </li>
                   <li>
-                    <a href="#getconfigconsentpolicy" class="toc-h2 toc-link" data-title="getconfigconsentpolicy">getConfigConsentPolicy</a>
+                    <a href="#getoverrideconsentpolicy" class="toc-h2 toc-link" data-title="getoverrideconsentpolicy">getOverrideConsentPolicy</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#enums-and-constants" class="toc-h1 toc-link" data-title="enums-and-constants">Enums and Constants</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#tealiumconsentcategories" class="toc-h2 toc-link" data-title="tealiumconsentcategories">TealiumConsentCategories</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#enum-values" class="toc-h3 toc-link" data-title="Enums and Constants">Enum Values</a>
+                          </li>
+                          <li>
+                            <a href="#all" class="toc-h3 toc-link" data-title="Enums and Constants">all</a>
+                          </li>
+                          <li>
+                            <a href="#consentcategoriesstringarraytoenum" class="toc-h3 toc-link" data-title="Enums and Constants">consentCategoriesStringArrayToEnum</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#tealiumconsentstatus" class="toc-h2 toc-link" data-title="tealiumconsentstatus">TealiumConsentStatus</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#notdetermined" class="toc-h3 toc-link" data-title="Enums and Constants">notDetermined</a>
+                          </li>
+                          <li>
+                            <a href="#consented" class="toc-h3 toc-link" data-title="Enums and Constants">consented</a>
+                          </li>
+                          <li>
+                            <a href="#notconsented" class="toc-h3 toc-link" data-title="Enums and Constants">notConsented</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#tealiumconsentconstants-internal" class="toc-h2 toc-link" data-title="tealiumconsentconstants-internal">TealiumConsentConstants (Internal)</a>
+                  </li>
+                  <li>
+                    <a href="#tealiumconsenttrackaction-internal" class="toc-h2 toc-link" data-title="tealiumconsenttrackaction-internal">TealiumConsentTrackAction (Internal)</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#trackingallowed" class="toc-h3 toc-link" data-title="Enums and Constants">trackingAllowed</a>
+                          </li>
+                          <li>
+                            <a href="#trackingforbidden" class="toc-h3 toc-link" data-title="Enums and Constants">trackingForbidden</a>
+                          </li>
+                          <li>
+                            <a href="#queue" class="toc-h3 toc-link" data-title="Enums and Constants">queue</a>
+                          </li>
+                      </ul>
                   </li>
               </ul>
           </li>
@@ -406,6 +454,8 @@
 <span class="k">self</span><span class="o">.</span><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">setConsentCategories</span><span class="p">([</span><span class="o">.</span><span class="n">analytics</span><span class="p">,</span><span class="o">.</span><span class="n">bigData</span><span class="p">,</span><span class="o">.</span><span class="n">monitoring</span><span class="p">])</span>
 </code></pre>
 <p>User granted consent only for specified tracking categories</p>
+<h2 id='get-all-consent-categories'>Get All Consent Categories</h2>
+<p>See <a href="#all">all</a></p>
 <h1 id='api-reference'>API Reference</h1><h2 id='consentmanager'>consentManager</h2><pre class="highlight swift tab-swift"><code><span class="kd">class</span> <span class="kt">MyClass</span> <span class="p">{</span>
     <span class="k">var</span> <span class="nv">teal</span><span class="p">:</span> <span class="kt">Tealium</span><span class="p">?</span>
 
@@ -515,7 +565,7 @@ Will always set the list of consented categories to include ALL available consen
 <h2 id='currentconsentcategories'>currentConsentCategories</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">consentCategories</span><span class="p">:</span> <span class="p">[</span><span class="kt">TealiumConsentCategories</span><span class="p">]?</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">currentConsentCategories</span><span class="p">()</span>
 </code></pre>
 <p>Returns the current consent categories</p>
-<h2 id='currentconsentpreferences'>currentConsentPreferences</h2><pre class="highlight swift tab-swift"><code><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="n">currentConsentPreferences</span> <span class="o">-&gt;</span> <span class="kt">TealiumConsentUserPreferences</span>
+<h2 id='currentconsentpreferences'>currentConsentPreferences</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">prefs</span><span class="p">:</span> <span class="kt">TealiumConsentUserPreferences</span><span class="p">?</span> <span class="o">=</span> <span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">currentConsentPreferences</span><span class="p">()</span>
 </code></pre>
 <p>Returns the TealiumConsentUserPreferences object (by value -&gt; struct)</p>
 <h2 id='clearstoredconsentpreferences'>clearStoredConsentPreferences</h2><pre class="highlight swift tab-swift"><code><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">clearUserConsentPreferences</span><span class="p">()</span>
@@ -539,12 +589,12 @@ Will always set the list of consented categories to include ALL available consen
 <td>true (default: false)</td>
 </tr>
 </tbody></table>
-<h3 id='hello'>Hello</h3><h2 id='isconsentloggingenabled'>isConsentLoggingEnabled</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<h2 id='isconsentloggingenabled'>isConsentLoggingEnabled</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
 <span class="k">let</span> <span class="nv">isEnabled</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="nf">isConsentLoggingEnabled</span><span class="p">()</span>
 </code></pre>
 <p>Returns the current state of the consent logging feature.</p>
-<h2 id='setconsentstatus'>setConsentStatus</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="n">config</span><span class="o">.</span><span class="nf">setConsentStatus</span><span class="p">(</span><span class="kt">TealiumConsentStatus</span><span class="p">)</span>
+<h2 id='setinitialconsentstatus'>setInitialConsentStatus</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="nf">setInitialConsentStatus</span><span class="p">(</span><span class="o">.</span><span class="n">notConsented</span><span class="p">)</span>
 </code></pre>
 <p>Sets the initial consent status for the user when the library starts up for the first time. If there are saved preferences, these will override any preferences passed in the config object.</p>
 
@@ -563,10 +613,8 @@ Will always set the list of consented categories to include ALL available consen
 <td>.consented/.notConsented</td>
 </tr>
 </tbody></table>
-<h2 id='setconsentcategories'>setConsentCategories</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="n">config</span><span class="o">.</span><span class="nf">setConsentCategories</span><span class="p">([</span><span class="kt">TealiumConsentCategories</span><span class="p">])</span>
-</code></pre><pre class="highlight objective_c tab-objective_c"><code><span class="n">let</span> <span class="n">config</span> <span class="o">=</span> <span class="n">TealiumConfig</span><span class="p">(...)</span>
-<span class="n">config</span><span class="p">.</span><span class="n">setConsentCategories</span><span class="p">([</span><span class="nf">TealiumConsentCategories</span><span class="p">])</span>
+<h2 id='setinitialconsentcategories'>setInitialConsentCategories</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="nf">setInitialConsentCategories</span><span class="p">([</span><span class="o">.</span><span class="n">analytics</span><span class="p">])</span>
 </code></pre>
 <p>Sets the user&#39;s initial consent categories when the library starts up for the first time. If there are saved preferences, these will override any preferences passed in the config object.</p>
 
@@ -585,14 +633,14 @@ Will always set the list of consented categories to include ALL available consen
 <td>[.analytics,.bigData]</td>
 </tr>
 </tbody></table>
-<h2 id='getconfigconsentstatus'>getConfigConsentStatus</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="k">let</span> <span class="nv">status</span><span class="p">:</span> <span class="kt">TealiumConsentStatus</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="nf">getConfigConsentStatus</span><span class="p">()</span>
+<h2 id='getinitialconsentstatus'>getInitialConsentStatus</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">status</span><span class="p">:</span> <span class="kt">TealiumConsentStatus</span><span class="p">?</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="nf">getInitialConsentStatus</span><span class="p">()</span>
 </code></pre>
 <p>Getter for the consent status currently set on the config object.</p>
 
 <aside class="notice">May not match the consent status set in the consentManager if the user has changed their preferences since the library launched.</aside>
-<h2 id='getconfigconsentcategories'>getConfigConsentCategories</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="k">let</span> <span class="nv">categories</span><span class="p">:</span> <span class="p">[</span><span class="kt">TealiumConsentCategories</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="nf">getConfigConsentCategories</span><span class="p">()</span>
+<h2 id='getinitialconsentcategories'>getInitialConsentCategories</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">categories</span><span class="p">:</span> <span class="p">[</span><span class="kt">TealiumConsentCategories</span><span class="p">]?</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="nf">getInitialConsentCategories</span><span class="p">()</span>
 </code></pre>
 <p>Getter for the consent categories currently set on the config object.</p>
 
@@ -615,10 +663,81 @@ Will always set the list of consented categories to include ALL available consen
 <td>&quot;mycustompolicy&quot;</td>
 </tr>
 </tbody></table>
-<h2 id='getconfigconsentpolicy'>getConfigConsentPolicy</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="k">let</span> <span class="nv">currentPolicy</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="nf">getConfigConsentPolicy</span><span class="p">()</span>
+<h2 id='getoverrideconsentpolicy'>getOverrideConsentPolicy</h2><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">TealiumConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">currentPolicy</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="nf">getOverrideConsentPolicy</span><span class="p">()</span>
 </code></pre>
 <p>Returns the current consent policy override, if applicable. Optional.</p>
+<h1 id='enums-and-constants'>Enums and Constants</h1><h2 id='tealiumconsentcategories'>TealiumConsentCategories</h2><h3 id='enum-values'>Enum Values</h3><pre class="highlight swift tab-swift"><code><span class="o">.</span><span class="n">analytics</span>
+<span class="o">.</span><span class="n">affiliates</span>
+<span class="o">.</span><span class="n">displayAds</span>
+<span class="o">.</span><span class="n">email</span>
+<span class="o">.</span><span class="n">personalization</span>
+<span class="o">.</span><span class="n">search</span>
+<span class="o">.</span><span class="n">social</span>
+<span class="o">.</span><span class="n">bigData</span>
+<span class="o">.</span><span class="n">mobile</span>
+<span class="o">.</span><span class="n">engagement</span>
+<span class="o">.</span><span class="n">monitoring</span>
+<span class="o">.</span><span class="n">cdm</span>
+<span class="o">.</span><span class="n">cdp</span>
+<span class="o">.</span><span class="n">cookiematch</span>
+<span class="o">.</span><span class="n">misc</span>
+</code></pre>
+<p>This enum contains the complete list of supported consent categories.
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
+<h3 id='all'>all</h3><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">allCategories</span><span class="p">:</span> <span class="p">[</span><span class="kt">TealiumConsentCategories</span><span class="p">]</span> <span class="o">=</span> <span class="kt">TealiumConsentCategories</span><span class="o">.</span><span class="nf">all</span><span class="p">()</span>
+</code></pre>
+<p>Returns the complete list of supported consent categories.</p>
+<h3 id='consentcategoriesstringarraytoenum'>consentCategoriesStringArrayToEnum</h3><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">selectCategories</span><span class="p">:</span> <span class="p">[</span><span class="kt">TealiumConsentCategories</span><span class="p">]</span> <span class="o">=</span> <span class="kt">TealiumConsentCategories</span><span class="o">.</span><span class="nf">consentCategoriesStringArrayToEnum</span><span class="p">([</span><span class="s">"analytics"</span><span class="p">,</span><span class="s">"bigData"</span><span class="p">])</span>
+</code></pre>
+<p>Converts an array of strings containing valid consent categories to an array of enum values. Invalid string values will be omitted from the resulting array.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>[String]</td>
+<td>An array of strings to convert into an array of TealiumConsentCategories</td>
+<td>[&quot;analytics&quot;, &quot;bigData&quot;]</td>
+</tr>
+</tbody></table>
+<h2 id='tealiumconsentstatus'>TealiumConsentStatus</h2><h3 id='notdetermined'>notDetermined</h3><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">status</span><span class="p">:</span> <span class="kt">TealiumConsentStatus</span> <span class="o">=</span> <span class="o">.</span><span class="n">notDetermined</span>
+</code></pre>
+<p>The <code>notDetermined</code> status is the default setting for the consent manager. In this state, the consent manager will queue events locally until an affirmative <code>consented</code>/<code>notConsented</code> status is provided.</p>
+<h3 id='consented'>consented</h3><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">status</span><span class="p">:</span> <span class="kt">TealiumConsentStatus</span> <span class="o">=</span> <span class="o">.</span><span class="n">consented</span>
+</code></pre>
+<p>The <code>consented</code> status is set when the user has consented to tracking. In this state, the consent manager allow all tracking calls to continue as normal.</p>
+<h3 id='notconsented'>notConsented</h3><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">status</span><span class="p">:</span> <span class="kt">TealiumConsentStatus</span> <span class="o">=</span> <span class="o">.</span><span class="n">notConsented</span>
+</code></pre>
+<p>The <code>notConsented</code> status is set when the user has declined tracking. In this state, the consent manager will drop all tracking calls and halt further processing by the SDK.</p>
+<h2 id='tealiumconsentconstants-internal'>TealiumConsentConstants (Internal)</h2><pre class="highlight swift tab-swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">TealiumConsentConstants</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">consentCategoriesKey</span> <span class="o">=</span> <span class="s">"consent_categories"</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">trackingConsentedKey</span> <span class="o">=</span> <span class="s">"tracking_consented"</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">consentGrantedEventName</span> <span class="o">=</span> <span class="s">"grant_full_consent"</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">consentDeclinedEventName</span> <span class="o">=</span> <span class="s">"decline_consent"</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">consentPartialEventName</span> <span class="o">=</span> <span class="s">"grant_partial_consent"</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">privacySettingEvent</span> <span class="o">=</span> <span class="s">"update_consent_cookie"</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">moduleName</span> <span class="o">=</span> <span class="s">"consentmanager"</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">consentLoggingEnabled</span> <span class="o">=</span> <span class="s">"consent_manager_enabled"</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">consentStatus</span> <span class="o">=</span> <span class="s">"consent_status"</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">policyKey</span> <span class="o">=</span> <span class="s">"policy"</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">defaultPolicy</span> <span class="o">=</span> <span class="s">"gdpr"</span>
+<span class="p">}</span>
+</code></pre>
+<p>This enum is used internally by the SDK to provide a central place to configure static key names.</p>
+<h2 id='tealiumconsenttrackaction-internal'>TealiumConsentTrackAction (Internal)</h2><h3 id='trackingallowed'>trackingAllowed</h3><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">TealiumConsentTrackAction</span> <span class="o">=</span> <span class="o">.</span><span class="n">trackingAllowed</span>
+</code></pre>
+<p>Used internally by the consent manager to determine that tracking is allowed, and tracking calls should pass through the module for further processing.</p>
+<h3 id='trackingforbidden'>trackingForbidden</h3><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">TealiumConsentTrackAction</span> <span class="o">=</span> <span class="o">.</span><span class="n">trackingForbidden</span>
+</code></pre>
+<p>Used internally by the consent manager to determine that tracking is forbidden, and tracking calls should be blocked.</p>
+<h3 id='queue'>queue</h3><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">TealiumConsentTrackAction</span> <span class="o">=</span> <span class="o">.</span><span class="n">queue</span>
+</code></pre>
+<p>Used internally by the consent manager to indicate that the consent state is currently not determined, and tracking calls should be queued locally until the consent state is known.</p>
 <h1 id='delegate-methods-tealiumconsentmanagerdelegate'>Delegate Methods (TealiumConsentManagerDelegate)</h1><h2 id='willdroptrackingcall'>willDropTrackingCall</h2><pre class="highlight swift tab-swift"><code><span class="kd">func</span> <span class="nf">willDropTrackingCall</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">TealiumTrackRequest</span><span class="p">)</span> <span class="p">{</span>
         <span class="nf">print</span><span class="p">(</span><span class="s">"**** Tracking call DROPPED ******"</span><span class="p">)</span>
         <span class="nf">print</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
@@ -632,7 +751,7 @@ Will always set the list of consented categories to include ALL available consen
 </code></pre>
 <p>This method is called whenever the consent manager is in the &quot;not determined&quot; state, and tracking calls are being queued locally until the user grants or declines consent.</p>
 <h2 id='willsendtrackingcall'>willSendTrackingCall</h2><pre class="highlight swift tab-swift"><code><span class="kd">func</span> <span class="nf">willSendTrackingCall</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">TealiumTrackRequest</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nf">print</span><span class="p">(</span><span class="s">"**** Tracking call Sent - 1st Helper ******"</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"**** Tracking call Sent"</span><span class="p">)</span>
         <span class="nf">print</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
     <span class="p">}</span>
 </code></pre>
@@ -691,7 +810,7 @@ Will always set the list of consented categories to include ALL available consen
     <span class="k">let</span> <span class="nv">userSelection</span> <span class="o">=</span> <span class="s">"Marketing"</span>
 
     <span class="k">if</span> <span class="k">let</span> <span class="nv">userList</span> <span class="o">=</span> <span class="n">consentGroups</span><span class="p">[</span><span class="n">userSelection</span><span class="p">]</span> <span class="p">{</span>
-      <span class="k">let</span> <span class="nv">settingsDict</span> <span class="o">=</span> <span class="p">[</span><span class="s">"consentStatus"</span><span class="p">:</span> <span class="s">"consented"</span><span class="p">,</span> <span class="s">"consentCategories"</span><span class="p">:</span> <span class="n">userList</span><span class="p">]</span>
+      <span class="k">let</span> <span class="nv">settingsDict</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">"consentStatus"</span><span class="p">:</span> <span class="s">"consented"</span><span class="p">,</span> <span class="s">"consentCategories"</span><span class="p">:</span> <span class="n">userList</span><span class="p">]</span>
 
       <span class="nf">updateConsentPreferences</span><span class="p">(</span><span class="n">settingsDict</span><span class="p">)</span>
     <span class="p">}</span>
@@ -717,7 +836,7 @@ Will always set the list of consented categories to include ALL available consen
 
 <span class="kd">func</span> <span class="nf">setUserConsentPreferences</span><span class="p">(</span><span class="n">_</span> <span class="nv">categories</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]){</span>
 
-    <span class="k">let</span> <span class="nv">settingsDict</span> <span class="o">=</span> <span class="p">[</span><span class="s">"consentStatus"</span><span class="p">:</span> <span class="s">"consented"</span><span class="p">,</span> <span class="s">"consentCategories"</span><span class="p">:</span> <span class="n">categories</span><span class="p">]</span>  
+    <span class="k">let</span> <span class="nv">settingsDict</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">"consentStatus"</span><span class="p">:</span> <span class="s">"consented"</span><span class="p">,</span> <span class="s">"consentCategories"</span><span class="p">:</span> <span class="n">categories</span><span class="p">]</span>  
     <span class="nf">updateConsentPreferences</span><span class="p">(</span><span class="n">settingsDict</span><span class="p">)</span>
 <span class="p">}</span>
 

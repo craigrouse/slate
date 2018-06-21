@@ -32,7 +32,7 @@
     <span class="k">let</span> <span class="nv">userSelection</span> <span class="o">=</span> <span class="s">"Marketing"</span>
 
     <span class="k">if</span> <span class="k">let</span> <span class="nv">userList</span> <span class="o">=</span> <span class="n">consentGroups</span><span class="p">[</span><span class="n">userSelection</span><span class="p">]</span> <span class="p">{</span>
-      <span class="k">let</span> <span class="nv">settingsDict</span> <span class="o">=</span> <span class="p">[</span><span class="s">"consentStatus"</span><span class="p">:</span> <span class="s">"consented"</span><span class="p">,</span> <span class="s">"consentCategories"</span><span class="p">:</span> <span class="n">userList</span><span class="p">]</span>
+      <span class="k">let</span> <span class="nv">settingsDict</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">"consentStatus"</span><span class="p">:</span> <span class="s">"consented"</span><span class="p">,</span> <span class="s">"consentCategories"</span><span class="p">:</span> <span class="n">userList</span><span class="p">]</span>
 
       <span class="nf">updateConsentPreferences</span><span class="p">(</span><span class="n">settingsDict</span><span class="p">)</span>
     <span class="p">}</span>
@@ -58,7 +58,7 @@
 
 <span class="kd">func</span> <span class="nf">setUserConsentPreferences</span><span class="p">(</span><span class="n">_</span> <span class="nv">categories</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]){</span>
 
-    <span class="k">let</span> <span class="nv">settingsDict</span> <span class="o">=</span> <span class="p">[</span><span class="s">"consentStatus"</span><span class="p">:</span> <span class="s">"consented"</span><span class="p">,</span> <span class="s">"consentCategories"</span><span class="p">:</span> <span class="n">categories</span><span class="p">]</span>  
+    <span class="k">let</span> <span class="nv">settingsDict</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">"consentStatus"</span><span class="p">:</span> <span class="s">"consented"</span><span class="p">,</span> <span class="s">"consentCategories"</span><span class="p">:</span> <span class="n">categories</span><span class="p">]</span>  
     <span class="nf">updateConsentPreferences</span><span class="p">(</span><span class="n">settingsDict</span><span class="p">)</span>
 <span class="p">}</span>
 

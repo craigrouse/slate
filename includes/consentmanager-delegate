@@ -11,7 +11,7 @@
 </code></pre>
 <p>This method is called whenever the consent manager is in the &quot;not determined&quot; state, and tracking calls are being queued locally until the user grants or declines consent.</p>
 <h2 id='willsendtrackingcall'>willSendTrackingCall</h2><pre class="highlight swift tab-swift"><code><span class="kd">func</span> <span class="nf">willSendTrackingCall</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">TealiumTrackRequest</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nf">print</span><span class="p">(</span><span class="s">"**** Tracking call Sent - 1st Helper ******"</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"**** Tracking call Sent"</span><span class="p">)</span>
         <span class="nf">print</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
     <span class="p">}</span>
 </code></pre>
