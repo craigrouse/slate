@@ -1,6 +1,6 @@
 <h1 id='implemented-code-examples'>Implemented Code Examples</h1><h2 id='use-case-1-simple-opt-in'>Use Case 1: Simple Opt-in</h2><pre class="highlight swift tab-swift"><code>    <span class="kd">func</span> <span class="nf">setConsentStatusSimple</span><span class="p">(</span><span class="n">_</span> <span class="nv">consented</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">let</span> <span class="nv">status</span><span class="p">:</span> <span class="kt">TealiumConsentStatus</span> <span class="o">=</span> <span class="n">consented</span> <span class="p">?</span> <span class="o">.</span><span class="nv">consented</span><span class="p">:</span> <span class="o">.</span><span class="n">notConsented</span> 
-        <span class="k">self</span><span class="o">.</span><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">setConsentStatus</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">setUserConsentStatus</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
     <span class="p">}</span>
 </code></pre>
 <p>This example shows you how to give your users a simple &quot;Opt-in/Opt-out&quot; option. If the user consents, they will be automatically opted-in to all tracking categories. If they revoke their consent, no categories will be active, and no tracking calls will be sent.</p>
@@ -15,7 +15,7 @@
         <span class="k">if</span> <span class="k">let</span> <span class="nv">categories</span> <span class="o">=</span> <span class="n">dict</span><span class="p">[</span><span class="s">"consentCategories"</span><span class="p">]</span> <span class="k">as?</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span> <span class="p">{</span>
             <span class="n">tealiumConsentCategories</span> <span class="o">=</span> <span class="kt">TealiumConsentCategories</span><span class="o">.</span><span class="nf">consentCategoriesStringArrayToEnum</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span>
         <span class="p">}</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">setConsentStatusWithCategories</span><span class="p">(</span><span class="nv">status</span><span class="p">:</span> <span class="n">tealiumConsentStatus</span><span class="p">,</span> <span class="nv">categories</span><span class="p">:</span> <span class="n">tealiumConsentCategories</span><span class="p">)</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">setUserConsentStatusWithCategories</span><span class="p">(</span><span class="nv">status</span><span class="p">:</span> <span class="n">tealiumConsentStatus</span><span class="p">,</span> <span class="nv">categories</span><span class="p">:</span> <span class="n">tealiumConsentCategories</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
@@ -50,7 +50,7 @@
         <span class="k">if</span> <span class="k">let</span> <span class="nv">categories</span> <span class="o">=</span> <span class="n">dict</span><span class="p">[</span><span class="s">"consentCategories"</span><span class="p">]</span> <span class="k">as?</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span> <span class="p">{</span>
             <span class="n">tealiumConsentCategories</span> <span class="o">=</span> <span class="kt">TealiumConsentCategories</span><span class="o">.</span><span class="nf">consentCategoriesStringArrayToEnum</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span>
         <span class="p">}</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">setConsentStatusWithCategories</span><span class="p">(</span><span class="nv">status</span><span class="p">:</span> <span class="n">tealiumConsentStatus</span><span class="p">,</span> <span class="nv">categories</span><span class="p">:</span> <span class="n">tealiumConsentCategories</span><span class="p">)</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">tealium</span><span class="p">?</span><span class="o">.</span><span class="nf">consentManager</span><span class="p">()?</span><span class="o">.</span><span class="nf">setUserConsentStatusWithCategories</span><span class="p">(</span><span class="nv">status</span><span class="p">:</span> <span class="n">tealiumConsentStatus</span><span class="p">,</span> <span class="nv">categories</span><span class="p">:</span> <span class="n">tealiumConsentCategories</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
@@ -63,6 +63,6 @@
 <span class="p">}</span>
 
 </code></pre>
-<p>This example shows a category-based consent model where the user must explicitly select each category from the full list of categories. The default state is &quot;Not Yet Determined&quot;, which will queue hits until the user provides their consent. If the user consents to any category, events are de-queued, and the consented category data is appended to each tracking call.</p>
+<p>This example shows a category-based consent model where the user must explicitly select each category from the full list of categories. The default state is &quot;Not Determined&quot;, which will queue hits until the user provides their consent. If the user consents to any category, events are de-queued, and the consented category data is appended to each tracking call.</p>
 
 <p><img src="/images/individual-gif.gif" alt="Category-Based" /></p>
