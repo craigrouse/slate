@@ -48,13 +48,13 @@ tealium?.consentManager()?.removeAllConsentDelegates()
 
 Removes all consent delegates added by you. Retains the built-in delegate created by the TealiumConsentManagerModule class.
 
-## setConsentStatus
+## setUserConsentStatus
 
 ```swift
-tealium?.consentManager()?.setConsentStatus(.consented)
+tealium?.consentManager()?.setUserConsentStatus(.consented)
 ```
 
-Sets the user's current consent status. Designed to be called from your consent management preferences screen in your app when the user enables or disables tracking.
+Sets the user's consent status. Designed to be called from your consent management preferences screen in your app when the user enables or disables tracking.
 
 <aside class="notice">
 Will always set the list of consented categories to include ALL available consent categories, if the status is <code>.consented</code>. Does not allow categories to be set selectively.
@@ -64,13 +64,13 @@ Will always set the list of consented categories to include ALL available consen
 |------------|----------------------------------------|--------------------------|
 | status     | A value from TealiumConsentStatus enum | `.consented`/`.notConsented` |
 
-## setConsentCategories
+## setUserConsentCategories
 
 ```swift
-tealium?.consentManager()?.setConsentCategories([.analytics,.bigData])
+tealium?.consentManager()?.setUserConsentCategories([.analytics,.bigData])
 ```
 
-Sets the user's current consent categories. Designed to be called from your consent management preferences screen in your app. 
+Sets the user's consent categories. Designed to be called from your consent management preferences screen in your app. 
 
 <aside class="notice">Will always set consent status to <code>.consented</code>.</aside>
 
@@ -78,10 +78,10 @@ Sets the user's current consent categories. Designed to be called from your cons
 |------------|----------------------------------------|--------------------------|
 | categories     | An array of values from the TealiumConsentCategories enum | `[.analytics,.bigData]`|
 
-## setConsentStatusWithCategories
+## setUserConsentStatusWithCategories
 
 ```swift
-tealium?.consentManager()?.setConsentStatusWithCategories(status: .consented, categories: [.analytics])
+tealium?.consentManager()?.setUserConsentStatusWithCategories(status: .consented, categories: [.analytics])
 ```
 
 Sets consent status and categories in a single call.
@@ -91,31 +91,31 @@ Sets consent status and categories in a single call.
 | status     | A value from TealiumConsentStatus enum | `.consented`/`.notConsented`|
 | categories     | An array of values from the TealiumConsentCategories enum | `[.analytics]`|
 
-## currentConsentStatus
+## getUserConsentStatus
 
 ```swift
-let consentStatus: TealiumConsentStatus? = tealium?.consentManager()?.currentConsentStatus()
+let consentStatus: TealiumConsentStatus? = tealium?.consentManager()?.getUserConsentStatus()
 ```
 Returns the current consent status
 
-## currentConsentCategories
+## getUserConsentCategories
 
 ```swift
-let consentCategories: [TealiumConsentCategories]? = self.tealium?.consentManager()?.currentConsentCategories()
+let consentCategories: [TealiumConsentCategories]? = self.tealium?.consentManager()?.getUserConsentCategories()
 ```
 Returns the current consent categories
 
-## currentConsentPreferences
+## getUserConsentPreferences
 
 ```swift
-let prefs: TealiumConsentUserPreferences? = tealium?.consentManager()?.currentConsentPreferences()
+let prefs: TealiumConsentUserPreferences? = tealium?.consentManager()?.getUserConsentPreferences()
 ```
 Returns the TealiumConsentUserPreferences object (by value -> struct)
 
-## clearStoredConsentPreferences
+## resetUserConsentPreferences
 
 ```swift
-tealium?.consentManager()?.clearUserConsentPreferences()
+tealium?.consentManager()?.resetUserConsentPreferences()
 ```
 Clears all currently stored consent preferences. Reverts to "not determined" consent state, with no categories.
 

@@ -21,11 +21,11 @@ let isEnabled = config.isConsentLoggingEnabled()
 ```
 Returns the current state of the consent logging feature.
 
-## setInitialConsentStatus
+## setInitialUserConsentStatus
 
 ```swift
 let config = TealiumConfig(...)
-config.setInitialConsentStatus(.notConsented)
+config.setInitialUserConsentStatus(.notConsented)
 ```
 Sets the initial consent status for the user when the library starts up for the first time. If there are saved preferences, these will override any preferences passed in the config object.
 
@@ -35,11 +35,11 @@ Sets the initial consent status for the user when the library starts up for the 
 |------------|----------------------------------------|--------------------------|
 | status     | A value from TealiumConsentStatus enum | .consented/.notConsented |
 
-## setInitialConsentCategories
+## setInitialUserConsentCategories
 
 ```swift
 let config = TealiumConfig(...)
-config.setInitialConsentCategories([.analytics])
+config.setInitialUserConsentCategories([.analytics])
 ```
 
 Sets the user's initial consent categories when the library starts up for the first time. If there are saved preferences, these will override any preferences passed in the config object.
@@ -50,7 +50,7 @@ Sets the user's initial consent categories when the library starts up for the fi
 |------------|----------------------------------------|--------------------------|
 | categories     | An array of values from the TealiumConsentCategories enum | [.analytics,.bigData]|
 
-## getInitialConsentStatus
+## getInitialUserConsentStatus
 
 ```swift
 let config = TealiumConfig(...)
@@ -61,7 +61,7 @@ Getter for the consent status currently set on the config object.
 <aside class="notice">May not match the consent status set in the consentManager if the user has changed their preferences since the library launched.</aside>
 
 
-## getInitialConsentCategories
+## getInitialUserConsentCategories
 
 ```swift
 let config = TealiumConfig(...)
