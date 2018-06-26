@@ -5,7 +5,7 @@
 ```swift
     func setConsentStatusSimple(_ consented: Bool) {
         let status: TealiumConsentStatus = consented ? .consented: .notConsented 
-        self.tealium?.consentManager()?.setConsentStatus(status)
+        self.tealium?.consentManager()?.setUserConsentStatus(status)
     }
 ```
 
@@ -25,7 +25,7 @@ func updateConsentPreferences(_ dict: [String: Any]) {
         if let categories = dict["consentCategories"] as? [String] {
             tealiumConsentCategories = TealiumConsentCategories.consentCategoriesStringArrayToEnum(categories)
         }
-        self.tealium?.consentManager()?.setConsentStatusWithCategories(status: tealiumConsentStatus, categories: tealiumConsentCategories)
+        self.tealium?.consentManager()?.setUserConsentStatusWithCategories(status: tealiumConsentStatus, categories: tealiumConsentCategories)
     }
 }
 
@@ -65,7 +65,7 @@ func updateConsentPreferences(_ dict: [String: Any]) {
         if let categories = dict["consentCategories"] as? [String] {
             tealiumConsentCategories = TealiumConsentCategories.consentCategoriesStringArrayToEnum(categories)
         }
-        self.tealium?.consentManager()?.setConsentStatusWithCategories(status: tealiumConsentStatus, categories: tealiumConsentCategories)
+        self.tealium?.consentManager()?.setUserConsentStatusWithCategories(status: tealiumConsentStatus, categories: tealiumConsentCategories)
     }
 }
 
@@ -79,6 +79,6 @@ func setUserConsentPreferences(_ categories: [String]){
 
 ```
 
-This example shows a category-based consent model where the user must explicitly select each category from the full list of categories. The default state is "Not Yet Determined", which will queue hits until the user provides their consent. If the user consents to any category, events are de-queued, and the consented category data is appended to each tracking call.
+This example shows a category-based consent model where the user must explicitly select each category from the full list of categories. The default state is "Not Determined", which will queue hits until the user provides their consent. If the user consents to any category, events are de-queued, and the consented category data is appended to each tracking call.
 
 ![Category-Based](images/individual-gif.gif)
